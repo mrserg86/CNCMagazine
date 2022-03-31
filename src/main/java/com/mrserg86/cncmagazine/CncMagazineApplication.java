@@ -1,10 +1,7 @@
-package CNCMagazine;
+package com.mrserg86.cncmagazine;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.io.IOException;
 

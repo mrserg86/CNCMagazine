@@ -1,4 +1,4 @@
-package CNCMagazine.controllers;
+package com.mrserg86.cncmagazine.controllers;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,7 +15,6 @@ public class MainController {
 
     @GetMapping("/CNCMagazine")
     public String CNCMagazine(Model model) throws IOException {
-        model.addAttribute("name", "name");
         Document document = Jsoup.connect("https://cbr.ru/").get();
         //System.out.println(document.title());
         //System.out.println(document.toString());
