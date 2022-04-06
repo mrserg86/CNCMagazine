@@ -30,9 +30,15 @@ public class MainController {
     @GetMapping("/parsingByTag")
     public String parsingByTag(Model model) throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
-        Elements dirtyUSDRate = document.getElementsByClass("main-indicator_rate");
-//        log.info("dirtyUSDRate : " + dirtyUSDRate);
-        for(int i=0, i <= dirtyUSDRate.)
+        Elements dirtyUSDRateStep1 = document.getElementsByClass("main-indicator_rate");
+//        log.info("dirtyUSDRate : " + dirtyUSDRate.);
+        for(int i=0; i <= dirtyUSDRateStep1.size(); i++) {
+            Element dirtyUSDRateStep2 = dirtyUSDRateStep1.get(i);
+            Elements dirtyUSDRateStep3 = dirtyUSDRateStep2.getElementsByClass("_dollar");
+            if ( ! dirtyUSDRateStep3.isEmpty()) {
+
+            }
+        }
         return "CNCMagazine";
     }
 
