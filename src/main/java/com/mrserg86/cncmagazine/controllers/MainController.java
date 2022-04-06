@@ -36,7 +36,7 @@ public class MainController {
             Element dirtyUSDRateStep2 = dirtyUSDRateStep1.get(i);
             Elements dirtyUSDRateStep3 = dirtyUSDRateStep2.getElementsByClass("_dollar");
             if ( ! dirtyUSDRateStep3.isEmpty()) {
-                for(int j =0; j < dirtyUSDRateStep3.size(); j++) {
+                for(int j=0; j < dirtyUSDRateStep3.size(); j++) {
                     Element dirtyUSDRateStep4 = dirtyUSDRateStep3.get(j);
                     Elements dirtyUSDRateStep5 = dirtyUSDRateStep4.getElementsByClass("mono-num");
                     if (! dirtyUSDRateStep5.isEmpty()) {
