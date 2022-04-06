@@ -1,4 +1,4 @@
-package CNCMagazine;
+package com.mrserg86.cncmagazine;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
