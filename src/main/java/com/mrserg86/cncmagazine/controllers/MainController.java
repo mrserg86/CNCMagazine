@@ -40,7 +40,7 @@ public class MainController {
             Element dirtyUSDRateStep2 = dirtyUSDRateStep1.get(i);
             Elements dirtyUSDRateStep3 = dirtyUSDRateStep2.getElementsByClass("_dollar");
             if ( ! dirtyUSDRateStep3.isEmpty()) {
-                log.info(dirtyUSDRateStep2.text());
+                log.info("dirtyUSDRateStep2 : " + dirtyUSDRateStep2.text());
 
                 //3. Из него выбираем содержимое первого тэга с классом mono-num
                 //for(int j=0; j < dirtyUSDRateStep3.size(); j++) {
