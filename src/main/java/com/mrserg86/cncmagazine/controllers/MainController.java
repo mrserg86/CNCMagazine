@@ -49,6 +49,7 @@ public class MainController {
 
                     //4. Из полученного тэга получаем содержимое
                     clearUSDRate = dirtyUSDRateStep5.text();
+                    break;
             } else {
                 clearUSDRate = "Ничего не найдено, видимо, доллар больше никому не нужен, ты в пролёте";
             }
