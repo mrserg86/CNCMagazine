@@ -27,7 +27,7 @@ public class MainController {
         return "CNCMagazine";
     }
 
-    @GetMapping("/parsingByTag")
+    @GetMapping("/")
     public String parsingByTag(Model model) throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
 
@@ -49,6 +49,8 @@ public class MainController {
 
                     //4. Из полученного тэга получаем содержимое
                     clearUSDRate = dirtyUSDRateStep5.text();
+            } else {
+                clearUSDRate = "Ничего не найдено, видимо, доллар больше никому не нужен, ты в пролёте";
             }
         }
         log.info("clearUSDRate : " + clearUSDRate);
