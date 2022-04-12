@@ -16,7 +16,7 @@ import java.io.IOException;
 public class USDRate{
 
     @GetMapping("/")
-    public String parsingByTag(Model model) throws IOException {
+    public String parsingByTag() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
 
         //1. Найти HTML тэги, которые обозначены классом main-indicator-rate
@@ -43,18 +43,16 @@ public class USDRate{
             }
         }
         log.info("clearUSDRate : " + clearUSDRate);
-        model.addAttribute("clearUSDRate", clearUSDRate);
-        return "CNCMagazine";
+        return clearUSDRate;
     }
 
     @GetMapping("/parsingByText")
-    public String parsingByText(Model model) throws IOException {
+    public String parsingByText() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
         String dirtyUSDRate = String.valueOf(document.getElementsContainingOwnText("₽"));
         String clearUSDRate = dirtyUSDRate.substring(dirtyUSDRate.length()-153,dirtyUSDRate.length()-143);
         log.info("clearUSDRate : " + clearUSDRate);
-        model.addAttribute("clearUSDRate", clearUSDRate);
-        return "CNCMagazine";
+        return clearUSDRate;
     }
 
 }
