@@ -16,6 +16,7 @@ import java.io.IOException;
 
 @Slf4j
 @Component
+@EnableScheduling
 public class USDRate{
 
     String clearUSDRate = null;
