@@ -5,9 +5,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 import java.io.IOException;
 
@@ -20,7 +23,7 @@ public class USDRate{
     public String getClearUSDRate() {
         return clearUSDRate;
     }
-
+@Scheduled(fixedDelay = 100000)
     public String parsingByTag() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
 
@@ -46,15 +49,6 @@ public class USDRate{
                 clearUSDRate = "Ничего не найдено, видимо, доллар больше никому не нужен, ты в пролёте";
             }
         }
-        log.info("clearUSDRate : " + clearUSDRate);
-        return clearUSDRate;
-    }
-
-    @GetMapping("/parsingByText")
-    public String parsingByText() throws IOException {
-        Document document = Jsoup.connect("https://cbr.ru/").get();
-        String dirtyUSDRate = String.valueOf(document.getElementsContainingOwnText("₽"));
-        String clearUSDRate = dirtyUSDRate.substring(dirtyUSDRate.length()-153,dirtyUSDRate.length()-143);
         log.info("clearUSDRate : " + clearUSDRate);
         return clearUSDRate;
     }
