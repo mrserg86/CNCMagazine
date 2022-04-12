@@ -19,7 +19,7 @@ import java.io.IOException;
 
 @Slf4j
 @Controller
-@Component
+
 public class MainController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class MainController {
 
     @GetMapping("/")
     public String CNCMAgazine(Model model) throws IOException {
-        model.addAttribute("clearUSDRate", usdRate.parsingByTag());
+        model.addAttribute("clearUSDRate", usdRate.getClearUSDRate());
         return "CNCMagazine";
     }
 

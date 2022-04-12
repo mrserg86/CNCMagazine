@@ -15,13 +15,17 @@ import java.io.IOException;
 @Component
 public class USDRate{
 
-    @GetMapping("/")
+    String clearUSDRate = null;
+
+    public String getClearUSDRate() {
+        return clearUSDRate;
+    }
+
     public String parsingByTag() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
 
         //1. Найти HTML тэги, которые обозначены классом main-indicator-rate
         Elements dirtyUSDRateStep1 = document.getElementsByClass("main-indicator_rate");
-        String clearUSDRate = null;
 
         //2. Из них, выбрать тот !тэг!, внтури которого есть тэг c классом "_dollar"
         for(int i=0; i < dirtyUSDRateStep1.size(); i++) {
