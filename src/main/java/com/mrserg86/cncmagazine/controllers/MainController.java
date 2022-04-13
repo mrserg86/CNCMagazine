@@ -25,17 +25,9 @@ public class MainController {
     @Autowired
     private USDRate usdRate;
 
-    public void setUsdRate(USDRate usdRate) {
-        this.usdRate = usdRate;
-    }
-
-    public USDRate getUsdRate() {
-        return usdRate;
-    }
-
     @GetMapping("/")
     public String CNCMAgazine(Model model) throws IOException {
-        model.addAttribute("clearUSDRate", usdRate.getClearUSDRate());
+        model.addAttribute("USDRate", usdRate.getClearUSDRate());
         return "CNCMagazine";
     }
 
