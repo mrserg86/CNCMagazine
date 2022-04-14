@@ -24,7 +24,7 @@ public class USDRate{
     public String getClearUSDRate() {
         return clearUSDRate;
     }
-@Scheduled(fixedDelay = 100000)
+@Scheduled(fixedDelay = 3600000)
     public String parsingByTag() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
 
