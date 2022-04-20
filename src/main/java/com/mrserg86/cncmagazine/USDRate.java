@@ -27,7 +27,7 @@ public class USDRate{
 @Scheduled(fixedDelay = 3600000)
     public String parsingByTag() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
-
+        System.out.println(document.toString());
         //1. Найти HTML тэги, которые обозначены классом main-indicator-rate
         Elements dirtyUSDRateStep1 = document.getElementsByClass("main-indicator_rate");
 
