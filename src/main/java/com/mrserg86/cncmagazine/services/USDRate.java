@@ -1,4 +1,4 @@
-package com.mrserg86.cncmagazine;
+package com.mrserg86.cncmagazine.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
@@ -8,8 +8,6 @@ import org.jsoup.select.Elements;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 import java.io.IOException;
@@ -24,11 +22,11 @@ public class USDRate{
     public String getClearUSDRate() {
         return clearUSDRate;
     }
-@Scheduled(fixedDelay = 3600000)
+
+    @Scheduled(fixedDelay = 3600000)
     public String parsingByTag() throws IOException {
         Document document = Jsoup.connect("https://cbr.ru/").get();
-        System.out.println(document.toString());
-        //1. Найти HTML тэги, которые обозначены классом main-indicator-rate
+        //1. Найти HTML тэги, которые обозначены классом m  ain-indicator-rate
         Elements dirtyUSDRateStep1 = document.getElementsByClass("main-indicator_rate");
 
         //2. Из них, выбрать тот !тэг!, внтури которого есть тэг c классом "_dollar"

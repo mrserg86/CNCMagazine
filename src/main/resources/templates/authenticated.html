@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html>
+<body>
+<ul>
+    <li><a href="/">главная</a></li>
+    <li sec:authorize="isAnonymous()"><a href="/login">войти</a></li>
+    <li sec:authorize="isAuthenticated()"><a href="/logout">выйти</a></li>
+</ul>
+
+<h1>Страница, доступная только пользователям, прошедшим аутенфикацию</h1>
+<p th:text="Курс доллара ЦБРФ нынче такой: ${USDRate}" />
+</body>
+</html>
